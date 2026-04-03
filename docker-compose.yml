@@ -1,0 +1,35 @@
+services:
+  websocket:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: locked-in-node-ws
+    environment:
+      PORT: 30174
+      REDIS_URL: redis://redis:6379
+    ports:
+      - "30174:30174"
+    restart: unless-stopped
+    depends_on:
+      - redis
+    networks:
+      - locker_ws_network
+
+  redis:
+    image: redis:7-alpine
+    container_name: locked-in-node-ws-redis
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    networks:
+      - locker_ws_network
+    ports:
+      - "6379:6379"
+
+networks:
+  locker_ws_network:
+    driver: bridge
+
+volumes:
+  redis_data:

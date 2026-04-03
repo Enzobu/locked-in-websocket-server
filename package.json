@@ -1,0 +1,15 @@
+{
+  "name": "locked-in-node-ws",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "WebSocket server for Locked-In ESP lockers",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "ioredis": "^5.4.1",
+    "ws": "^8.18.0"
+  }
+}
