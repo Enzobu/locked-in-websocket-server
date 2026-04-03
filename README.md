@@ -67,27 +67,9 @@ ws-node:
 
 ## Côté ESP
 
-Avec ton code actuel, il faut pointer sur :
-
 - host : IP de la machine Docker
 - port : `30174`
 - path : `/`
-
-## Ce que tu peux supprimer côté Symfony
-
-Tu peux supprimer :
-
-- le serveur WebSocket PHP
-- le handler Ratchet
-- le registry des connexions ESP en PHP
-- le service Docker `websocket`
-
-Tu gardes :
-
-- `PendingCommandRegistry`
-- `WebSocketLockerGateway`
-- l'API Symfony
-- Redis
 
 ## Logs attendus
 
